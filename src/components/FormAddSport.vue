@@ -2,25 +2,30 @@
   <div>
     <div class="form">
       <label>
-        <span>Name</span>
-        <input type="text" maxlength="20" placeholder="nameAdd" v-model="newSport.name" />
+        <span>Nom : </span>
+        <input type="text" maxlength="20" placeholder="NomAdd" v-model="newSport.name" />
       </label>
 
       <label>
-        <span>Nombre de joueurs</span>
-        <input type="number" maxlength="5" placeholder="players" v-model="newSport.players" />
+        <span>Nombre de joueurs : </span>
+        <input type="number" maxlength="5" placeholder="Nombre de joueurs" v-model="newSport.players" />
       </label>
 
       <label>
-        <span>Terrain</span>
+        <span>Terrain : </span>
         <input type="text" maxlength="20" placeholder="Terrain" v-model="newSport.field" />
       </label>
 
       <label>
-        <span>Description</span>
+        <span>Description : </span>
         <input type="text" maxlength="20" placeholder="Description" v-model="newSport.type" />
       </label>
     </div>
+
+      <label>
+        <span>Détail : </span>
+        <input type="textarea" placeholder="Détail" v-model="newSport.detail" />
+      </label>
 
     <button @click="hideSportForm">Annuler</button>
     <!-- Lorsque je clique sur ajouter, j'appel ma fonction emettreNouveauSport -->

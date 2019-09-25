@@ -7,7 +7,7 @@
     <div class="description">
       <h1>{{sport.name}}</h1>
       <h2>{{sport.type}}</h2>
-      <p>{{sport.detail}}</p>
+      <p>Description : {{sport.detail}}</p>
     </div>
   </div>
 </template>
@@ -16,12 +16,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Vue from 'vue';
-import VueMq from 'vue-mq';
+// import VueMq from 'vue-mq';
 
 
 export default {
   name: "Sport",
-
   props: ["sport"],
 
   data: function() {

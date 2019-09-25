@@ -88,9 +88,9 @@ const state = {
         }    
       },
 
-      async retrieveOneSport({commit}, index){
+      async retrieveOneSport({commit}, id){
         try{
-          const response = await axios.get(`http://localhost:3000/0`);
+          const response = await axios.get(`http://localhost:3000/${id}`);
           commit('setOneSport', response.data);
         }  catch(error) {
           // eslint-disable-next-line no-console

@@ -12,7 +12,7 @@
       <tbody>
         <!--v-for pour obtenir sous forme de liste les sports du sport-->
         <tr v-for="(sport, index) in sports">
-          <button @click="showSport">
+          <button @click="showSport(sport.id)">
             <td>{{sport.name}}</td>
           </button>
 
@@ -73,18 +73,26 @@ export default {
   },
 
   methods: {
+
+    ...mapActions([
+      "retrieveOneSport",
+    ]),
+
     supprimerSport(index) {
       this.$emit("delSport", index);
     },
     editSport(index) {
       this.$emit("modifySport", index);
     },
-    showSport() {
+    showSport(id) { 
       this.showOneSport = true;
+      this.retrieveOneSport(id);
     },
     hideSport() {
       this.showOneSport = false;
     }
+
+    
   }
 };
 </script>

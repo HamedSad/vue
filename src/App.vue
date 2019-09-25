@@ -56,38 +56,31 @@ export default {
 
   created() {
     this.retrieveListSports();
-    this.retrieveOneSport();
   },
 
   computed: {
-    ...mapGetters(["getAllSports", "getOneSport"])
+    ...mapGetters(["getAllSports"])
   },
 
-  // async created() {
-  //   try {
-  //     const response = await axios.get("http://localhost:3000");
-  //     this.sportsList = response.data;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //   //  axios
-  //   //     .get('http://localhost:3000')
-  //   //     .then(response => (this.sportsList = response.data))
-  //   //     .catch(error => console.log(error))
+    //  axios
+    //     .get('http://localhost:3000')
+    //     .then(response => (this.sportsList = response.data))
+    //     .catch(error => console.log(error))
   // },
 
   methods: {
-    //On met a disposition les actions
+
+    //On met a disposition les actions et utilisation de la mutation en reprenant la methode deleteSport du composant listSports
+    // et la methode delete du mapActions
     ...mapActions([
       "deleteSport",
       "add",
       "modify",
       "retrieveListSports",
-      "retrieveOneSport"
+      "retrieveOneSport",
     ]),
 
-    //Utulisation de la mutation en reprenant la methode deleteSport du composant listSports
-    // et la methode delete du mapActions
+    
 
     addNewSport(newSport) {
       this.add(newSport);
