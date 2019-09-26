@@ -1,17 +1,12 @@
 <template>
   <div id="app">
-    <header>Sports Inconnus</header>
+    <header><h1>Sports Inconnus</h1></header>
 
     <!-- @click appelle la methode showAddSport lorsque l'on clique sur le bouton -->
     <button v-if="!showCreationSport" @click="showAddSport">Ajouter un sport</button>
 
     <div v-if="showModificationSport">
-      <FormModifySport :sportAModifier="getAllSports[modifierIndex]" @modification="updateSport"></FormModifySport>
-    </div>
-
-    <div>
-      <!-- <span v-if="sportsList.length">{{sportsList.length}} sports dans la liste</span> -->
-      <!-- <span v-else>Aucun sport dans la liste</span> -->
+      <FormModifySport :sportAModifier="getAllSports[modifierIndex]" @modification="updateSport" @hideFormModify="hideModifySport"></FormModifySport>
     </div>
 
     <div v-if="showCreationSport">
@@ -50,7 +45,7 @@ export default {
     return {
       showCreationSport: false,
       showModificationSport: false,
-      modifierIndex: 0
+      modifierIndex : 0,
     };
   },
 
@@ -69,24 +64,19 @@ export default {
   // },
 
   methods: {
-
     //On met a disposition les actions et utilisation de la mutation en reprenant la methode deleteSport du composant listSports
     // et la methode delete du mapActions
     ...mapActions([
       "deleteSport",
       "add",
       "modify",
-      "retrieveListSports",
-      "retrieveOneSport",
+      "retrieveListSports"
     ]),
-
-    
 
     addNewSport(newSport) {
       this.add(newSport);
       this.hideAddSport();
     },
-
     toggleAddSport: () => {
       this.showCreationSport = this.showSport ? false : true;
     },
@@ -101,12 +91,12 @@ export default {
     },
     showModifySport() {
       this.showModificationSport = true;
+      this.hideAddSport();
     },
-
     modifierSport(index) {
       this.showModifySport();
+      this.modifierIndex = index;
     },
-
     updateSport(sport) {
       // methode qui modifie le tableau de base
       // this.sportsList = [...this.sportsList.slice(0, this.modifierIndex), sport, ...this.sportsList.slice(this.modifierIndex +1)]
@@ -124,5 +114,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+h1{
+  text-align: center;
 }
 </style>

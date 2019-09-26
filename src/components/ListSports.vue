@@ -44,7 +44,7 @@ export default {
   components: {
     Sport
   },
-  props: ["sports", ""],
+  props: ["sports"],
 
   data: function() {
     return {

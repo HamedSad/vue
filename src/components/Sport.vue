@@ -16,8 +16,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Vue from 'vue';
-// import VueMq from 'vue-mq';
-
+//import '../public/style.scss';
 
 export default {
   name: "Sport",
@@ -30,7 +29,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
 .sport {
   display: flex;
   justify-content: space-between;
@@ -41,10 +41,13 @@ export default {
   padding: 20px;
 }
 
-.pic img {
+.pic {
+
+& img {
   height: 150px;
   weight: 150px;
   margin: 20px;
+  }
 }
 
 @media screen and (max-width: 500px) {

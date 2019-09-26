@@ -2,30 +2,40 @@
   <div>
     <div class="form">
       <label>
-        <span>NomModify : </span>
+        <span>NomModify </span>
         <input type="text" maxlength="20" placeholder="NomModify" v-model="sport.name" />
       </label>
+      <br />
+      <br />
 
       <label>
-        <span>Nombre de joueurs : </span>
+        <span>Nombre de joueurs </span>
         <input type="number" maxlength="5" placeholder="Nombre de joueurs" v-model="sport.players" />
       </label>
+      <br />
+      <br />
 
       <label>
-        <span>Terrain : </span>
+        <span>Terrain </span>
         <input type="text" maxlength="20" placeholder="Terrain" v-model="sport.field" />
       </label>
+      <br />
+      <br />
 
       <label>
-        <span>Description : </span>
+        <span>Description </span>
         <input type="text" maxlength="20" placeholder="Description" v-model="sport.type" />
       </label>
+      <br />
+      <br />
 
 
       <label>
-        <span>Detail : </span>
-        <input type="text" maxlength="20" placeholder="Detail" v-model="sport.type" />
+        <span>Detail </span>
+        <textarea rows="5" cols="33" placeholder="Detail" v-model="sport.detail" />
       </label>
+      <br />
+      <br />
 
 
     </div>
