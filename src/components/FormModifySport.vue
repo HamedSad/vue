@@ -46,7 +46,11 @@
   </div>
 </template>
 
+
 <script>
+
+import { required, minLength, maxlength} from 'vuelidate/lib/validators'
+
 export default {
   name: "FormModifySport",
   props: ["sportAModifier"],
