@@ -1,19 +1,26 @@
 <template>
   <div>
     <div class="form">
-      <label>
-        <span>NomModify </span>
-        <input type="text" maxlength="20" placeholder="NomModify" v-model="sport.name" />
-      </label>
-      <br />
-      <br />
+      
 
-      <label>
-        <span>Nombre de joueurs </span>
-        <input type="number" maxlength="5" placeholder="Nombre de joueurs" v-model="sport.players" />
-      </label>
-      <br />
-      <br />
+        <div class="form-group">
+          <label for="name">Nom *</label>
+          <input type="text" placeholder="NomModify" v-model="$v.sport.name.$model" />
+          <div class="error" v-if="!$v.sport.name.required && $v.sport.name.$dirty">Le champ Nom doit être rempli</div>
+        <div class="error" v-if="!$v.sport.name.minLength">Le champ doit comporter au minimum 3 caractères</div>
+        <br />
+        <br />
+        </div>
+
+
+        <div class="form-group">
+          <label for="name">Nombre de joueurs *</label>
+          <input placeholder="NomModify" v-model="$v.sport.players.$model" />
+          <div class="error" v-if="!$v.sport.players.required && $v.sport.players.$dirty">Le champ joueurs doit être rempli</div>
+        <div class="error" v-if="!$v.sport.players.numeric">Le champ ne doit comporter que des chiffres</div>
+        <br />
+        <br />
+        </div>
 
       <label>
         <span>Terrain </span>
@@ -49,7 +56,7 @@
 
 <script>
 
-import { required, minLength, maxlength} from 'vuelidate/lib/validators'
+import { required, minLength, numeric} from 'vuelidate/lib/validators'
 
 export default {
   name: "FormModifySport",
@@ -57,8 +64,44 @@ export default {
 
   data: function() {
     return {
-      sport: {}
+      sport: {
+        name: "",
+        players: "",
+        field: "",
+        type: "",
+        detail: ""
+
+      }
     };
+  },
+
+  validations: {
+    sport: {
+      name: {
+        required,
+        minLength: minLength(3)
+      },
+
+      players: {
+        required,
+        numeric
+      },
+
+      field: {
+        required,
+        minLength: minLength(3)
+      },
+
+      type: {
+        required,
+        minLength: minLength(3)
+      },
+
+      detail: {
+        required,
+        minLength: minLength(10)
+      }
+    }
   },
 
   created() {
